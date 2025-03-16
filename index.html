@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Remove image backgrounds and change background colors easily with our online tool. Optimize images with adjustable compression levels.">
+    <meta name="keywords" content="image background remover, background color changer, image optimizer, online tool">
+    <meta name="author" content="Your Name">
+    <title>Background Remover - Your Tools Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Your Tools Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="background-remover.html">Background Remover</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Tool Section -->
+    <section id="tool">
+        <div class="container">
+            <h2>Image Background Remover</h2>
+            <div class="upload-section">
+                <input type="file" id="imageUpload" accept="image/*" hidden>
+                <label for="imageUpload" class="upload-btn">📁 Upload Image</label>
+                <span id="fileName"></span>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="compression">Compression Level: <span id="compressionValue">50</span>%</label>
+                    <input type="range" id="compression" min="0" max="100" value="50">
+                </div>
+                <div class="control-group">
+                    <label for="bgColor">Background Color:</label>
+                    <input type="color" id="bgColor" value="#ff6f61">
+                </div>
+                <button id="processBtn" class="process-btn">✨ Process Image</button>
+            </div>
+
+            <div class="result">
+                <canvas id="canvas"></canvas>
+                <a id="downloadLink" class="download-btn">📥 Download Processed Image</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your Tools Website. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>/* styles.css */
+:root {
+    --primary-color: #6b5b95; /* Purple */
+    --secondary-color: #ff6f61; /* Coral */
+    --background-color: #f4f4f4; /* Light Gray */
+    --text-color: #333; /* Dark Gray */
+    --card-color: #ffffff; /* White */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--card-color);
+    padding: 20px 0;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+header h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--card-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+#hero {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: var(--card-color);
+    padding: 100px 0;
+    text-align: center;
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: var(--card-color);
+    color: var(--primary-color);
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+#tools {
+    padding: 60px 0;
+}
+
+#tools h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background-color: var(--card-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.tool-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.tool-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+#about, #contact {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#about h2, #contact h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#about p, #contact p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--card-color);
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-links {
+    margin-top: 10px;
+}
+
+footer .social-links a {
+    color: var(--card-color);
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #hero h2 {
+        font-size: 2rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr;
+    }
+}// script.js
+document.getElementById('imageUpload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const fileNameDisplay = document.getElementById('fileName');
+    if (file) {
+        fileNameDisplay.textContent = `Selected File: ${file.name}`;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = new Image();
+            img.src = e.target.result;
+            img.onload = function() {
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+            };
+        };
+        reader.readAsDataURL(file);
+    } else {
+        fileNameDisplay.textContent = '';
+    }
+});
+
+document.getElementById('compression').addEventListener('input', function() {
+    document.getElementById('compressionValue').textContent = this.value;
+});
+
+document.getElementById('processBtn').addEventListener('click', function() {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const bgColor = document.getElementById('bgColor').value;
+    const compressionLevel = document.getElementById('compression').value;
+
+    // Placeholder for background removal and color change logic
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Placeholder for compression logic
+    const dataUrl = canvas.toDataURL('image/png', compressionLevel / 100);
+    const downloadLink = document.getElementById('downloadLink');
+    downloadLink.href = dataUrl;
+});
